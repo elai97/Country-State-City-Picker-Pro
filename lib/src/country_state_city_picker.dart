@@ -112,8 +112,14 @@ class _CountryStateCityPickerState extends State<CountryStateCityPicker> {
         ),
 
         ///Country TextField
-        TextField(
+        TextFormField(
           controller: widget.country,
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return "Please field can't be empty";
+            }
+            return null;
+          },
           onTap: () {
             setState(() => _title = 'Country');
             _showDialog(context);
@@ -121,7 +127,7 @@ class _CountryStateCityPickerState extends State<CountryStateCityPicker> {
           decoration: InputDecoration(
               isDense: true,
               hintText: 'Select Country',
-              suffixIcon: Icon(Icons.arrow_drop_down),
+              suffixIcon: Icon(Icons.expand_more_outlined),
               border: widget.textFieldInputBorder ?? OutlineInputBorder()),
           readOnly: true,
         ),
@@ -140,8 +146,14 @@ class _CountryStateCityPickerState extends State<CountryStateCityPicker> {
         ),
 
         ///State TextField
-        TextField(
+        TextFormField(
           controller: widget.state,
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return "Please field can't be empty";
+            }
+            return null;
+          },
           onTap: () {
             setState(() => _title = 'State');
             if (widget.country.text.isNotEmpty)
@@ -152,7 +164,7 @@ class _CountryStateCityPickerState extends State<CountryStateCityPicker> {
           decoration: InputDecoration(
               isDense: true,
               hintText: 'Select State',
-              suffixIcon: Icon(Icons.arrow_drop_down),
+              suffixIcon: Icon(Icons.expand_more_outlined),
               border: widget.textFieldInputBorder ?? OutlineInputBorder()),
           readOnly: true,
         ),
@@ -171,8 +183,14 @@ class _CountryStateCityPickerState extends State<CountryStateCityPicker> {
         ),
 
         ///City TextField
-        TextField(
+        TextFormField(
           controller: widget.city,
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return "Please field can't be empty";
+            }
+            return null;
+          },
           onTap: () {
             setState(() => _title = 'City');
             if (widget.state.text.isNotEmpty)
@@ -183,7 +201,7 @@ class _CountryStateCityPickerState extends State<CountryStateCityPicker> {
           decoration: InputDecoration(
               isDense: true,
               hintText: 'Select City',
-              suffixIcon: Icon(Icons.arrow_drop_down),
+              suffixIcon: Icon(Icons.expand_more_outlined),
               border: widget.textFieldInputBorder ?? OutlineInputBorder()),
           readOnly: true,
         ),
